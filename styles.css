@@ -1,23 +1,75 @@
 /* styles.css */
-.copy-button {
-    background-color: #4CAF50; /* 緑色 */
+/* styles.css */
+
+/* 全体のフォントと基本スタイル */
+body {
+    font-family: 'Baloo 2', 'Roboto', sans-serif; /* 丸みを帯びたフォント「Baloo 2」を使用 */
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h1, h2 {
+    font-family: 'Baloo 2', sans-serif; /* 見出しにも丸みを帯びたフォント */
+    color: #FF6347; /* 明るいオレンジ色 */
+    text-align: center;
+}
+
+textarea {
+    font-family: 'Baloo 2', sans-serif; /* テキストエリアに丸みのあるフォント */
+    font-size: 18px;
+    padding: 12px;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 10px;
+    border: 2px solid #FF6347; /* 明るいオレンジ色のボーダー */
+    border-radius: 10px; /* 丸い角 */
+    box-sizing: border-box;
+    background-color: #fff3e0; /* やわらかい色の背景 */
+}
+
+button {
+    background-color: #FF6347; /* 明るいオレンジ色 */
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    font-size: 18px;
+    margin: 10px 0;
     cursor: pointer;
-    border-radius: 12px; /* 角を丸くする */
-    position: relative;
-    overflow: hidden;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* スムーズな変化 */
+    border-radius: 25px; /* 丸いボタン */
+    font-family: 'Baloo 2', sans-serif;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #FF4500; /* ホバー時に少し濃いオレンジ色 */
+    transform: scale(1.05); /* ホバー時に少し拡大 */
+}
+
+button:active {
+    transform: scale(1); /* クリック時に元のサイズに戻る */
+}
+
+/* コピー用ボタンのスタイル */
+.copy-button {
+    background-color: #FF6347; /* 明るいオレンジ色 */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .copy-button:hover {
-    background-color: #45a049; /* 少し濃い緑色に変化 */
+    background-color: #FF4500; /* 少し濃いオレンジ色に変化 */
     transform: scale(1.1); /* ホバー時に少し拡大 */
 }
 
@@ -25,33 +77,16 @@
     transform: scale(1); /* クリック時に元のサイズに戻る */
 }
 
-.copy-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background-color: rgba(255, 255, 255, 0.2);
-    transition: width 0.4s ease, height 0.4s ease, top 0.4s ease, left 0.4s ease;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.copy-button:active::before {
-    width: 0;
-    height: 0;
-    top: 50%;
-    left: 50%;
-}
-
+/* 通知メッセージ */
 .notification {
     display: none;
-    background-color: #4CAF50;
+    background-color: #FF6347; /* 明るいオレンジ色 */
     color: white;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 12px;
+    border-radius: 10px;
     position: absolute;
     top: 20px;
     right: 20px;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 16px;
 }
