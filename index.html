@@ -25,7 +25,7 @@
             const inputText = document.getElementById('inputText').value;
             let outputText = '';
             for (let char of inputText) {
-                outputText += ||${char}||;
+                outputText += `||${char}||`;  // テンプレートリテラルを使用して変換
             }
             document.getElementById('outputText').innerText = outputText;
         }
