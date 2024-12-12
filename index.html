@@ -40,6 +40,7 @@
 
                 // 5秒後にフェードアウト開始
                 setTimeout(() => {
+                    notification.classList.remove('fadeIn'); // フェードインを削除
                     notification.classList.add('fadeOut'); // フェードアウト効果を追加
                 }, 5000); // 5秒後にフェードアウトを開始
 
