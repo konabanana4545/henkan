@@ -19,7 +19,6 @@
     <!-- コピー通知 -->
     <div id="notification" class="notification">
         <p>コピーしました！</p>
-        <button id="okButton">OK</button>
     </div>
 
     <script>
@@ -39,17 +38,16 @@
                 notification.style.display = 'block';  // 通知を表示
                 notification.classList.add('fadeIn'); // フェードイン効果を追加
 
-                // 「OK」ボタンをクリックしたら通知を非表示にする
-                document.getElementById('okButton').onclick = function() {
-                    notification.classList.remove('fadeIn');  // フェードインを削除
-                    notification.classList.add('fadeOut');   // フェードアウト効果を追加
+                // 5秒後にフェードアウト開始
+                setTimeout(() => {
+                    notification.classList.add('fadeOut'); // フェードアウト効果を追加
+                }, 5000); // 5秒後にフェードアウトを開始
 
-                    // フェードアウトが完了したら非表示にする
-                    setTimeout(() => {
-                        notification.style.display = 'none';
-                        notification.classList.remove('fadeOut');  // フェードアウトを削除
-                    }, 1000); // フェードアウトの時間と一致させる
-                };
+                // フェードアウト後に通知を非表示にする
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                    notification.classList.remove('fadeOut');  // フェードアウトを削除
+                }, 6000); // フェードアウトの終了時間
             });
         }
     </script>
