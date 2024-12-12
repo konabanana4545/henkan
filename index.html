@@ -34,7 +34,7 @@
             const outputText = document.getElementById('outputText').innerText;
             navigator.clipboard.writeText(outputText).then(() => {
                 const notification = document.getElementById('notification');
-                notification.style.display = 'block';  // 通知を表示
+                notification.style.visibility = 'visible';  // 通知を表示
                 notification.classList.add('fadeIn'); // フェードイン効果を追加
 
                 // 5秒後にフェードアウト開始
@@ -45,7 +45,7 @@
 
                 // フェードアウト後に通知を非表示にする
                 setTimeout(() => {
-                    notification.style.display = 'none';
+                    notification.style.visibility = 'hidden'; // 非表示にする
                     notification.classList.remove('fadeOut');  // フェードアウトを削除
                 }, 6000); // フェードアウトの終了時間
             });
