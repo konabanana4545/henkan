@@ -15,7 +15,12 @@
     <h2>変換結果</h2>
     <div id="outputText"></div>
     <button class="copy-button" onclick="copyText()">コピー</button>
-    <div id="notification" class="notification">コピーしました！</div>
+    
+    <!-- コピー通知 -->
+    <div id="notification" class="notification">
+        <p>コピーしました！</p>
+        <button id="okButton">OK</button>
+    </div>
 
     <script>
         function convertText() {
@@ -31,10 +36,12 @@
             const outputText = document.getElementById('outputText').innerText;
             navigator.clipboard.writeText(outputText).then(() => {
                 const notification = document.getElementById('notification');
-                notification.style.display = 'block';
-                setTimeout(() => {
+                notification.style.display = 'block';  // 通知を表示
+
+                // 「OK」ボタンをクリックしたら通知を非表示にする
+                document.getElementById('okButton').onclick = function() {
                     notification.style.display = 'none';
-                }, 2000);
+                };
             });
         }
     </script>
