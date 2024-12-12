@@ -4,7 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>文字変換ツール</title>
-    <link rel="stylesheet" href="aa.css"> <!-- aa.css をリンク -->
+    <style>
+        .copy-button {
+            background-color: #4CAF50; /* 緑色 */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px; /* 角を丸くする */
+            position: relative;
+            overflow: hidden;
+            transition: background-color 0.3s ease, transform 0.2s ease; /* スムーズな変化 */
+        }
+
+        .copy-button:hover {
+            background-color: #45a049; /* 少し濃い緑色に変化 */
+            transform: scale(1.1); /* ホバー時に少し拡大 */
+        }
+
+        .copy-button:active {
+            transform: scale(1); /* クリック時に元のサイズに戻る */
+        }
+
+        .copy-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: width 0.4s ease, height 0.4s ease, top 0.4s ease, left 0.4s ease;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .copy-button:active::before {
+            width: 0;
+            height: 0;
+            top: 50%;
+            left: 50%;
+        }
+    </style>
 </head>
 <body>
     <h1>文字変換ツール</h1>
