@@ -89,6 +89,128 @@ button:active {
     font-family: 'Baloo 2', sans-serif;
     font-size: 16px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    opacity: 0; /* 初期状態では透明 */
+    transition: opacity 1s ease; /* フェードイン・フェードアウトのアニメーション */
+}
+
+/* フェードインアニメーション */
+.notification.fadeIn {
+    opacity: 1; /* 表示時に透明度1（完全に表示） */
+}
+
+/* フェードアウトアニメーション */
+.notification.fadeOut {
+    opacity: 0; /* 透明度0（完全に非表示） */
+}
+
+/* OKボタン */
+#okButton {
+    background-color: #FF4500;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#okButton:hover {
+    background-color: #FF3333;
+}
+/* styles.css */
+
+/* 全体のフォントと基本スタイル */
+body {
+    font-family: 'Baloo 2', 'Roboto', sans-serif; /* 丸みを帯びたフォント「Baloo 2」を使用 */
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h1, h2 {
+    font-family: 'Baloo 2', sans-serif; /* 見出しにも丸みを帯びたフォント */
+    color: #FF6347; /* 明るいオレンジ色 */
+    text-align: center;
+}
+
+textarea {
+    font-family: 'Baloo 2', sans-serif; /* テキストエリアに丸みのあるフォント */
+    font-size: 18px;
+    padding: 12px;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 10px;
+    border: 2px solid #FF6347; /* 明るいオレンジ色のボーダー */
+    border-radius: 10px; /* 丸い角 */
+    box-sizing: border-box;
+    background-color: #fff3e0; /* やわらかい色の背景 */
+}
+
+button {
+    background-color: #FF6347; /* 明るいオレンジ色 */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 25px; /* 丸いボタン */
+    font-family: 'Baloo 2', sans-serif;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #FF4500; /* ホバー時に少し濃いオレンジ色 */
+    transform: scale(1.05); /* ホバー時に少し拡大 */
+}
+
+button:active {
+    transform: scale(1); /* クリック時に元のサイズに戻る */
+}
+
+/* コピー用ボタンのスタイル */
+.copy-button {
+    background-color: #FF6347; /* 明るいオレンジ色 */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.copy-button:hover {
+    background-color: #FF4500; /* 少し濃いオレンジ色に変化 */
+    transform: scale(1.1); /* ホバー時に少し拡大 */
+}
+
+.copy-button:active {
+    transform: scale(1); /* クリック時に元のサイズに戻る */
+}
+
+/* 通知メッセージ */
+.notification {
+    display: none;
+    background-color: #FF6347; /* 明るいオレンジ色 */
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 16px;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     width: 250px;
