@@ -5,7 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>文字変換ツール</title>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <!-- 外部 CSS ファイルをリンク -->
+    <style>
+        /* 基本的なスタイル */
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-family: 'Baloo 2', cursive;
+        }
+
+        textarea {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            padding: 10px;
+            width: 80%;
+            margin: 20px 0;
+            resize: none;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #outputText {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            width: 80%;
+            word-wrap: break-word;
+        }
+
+        /* 通知のスタイル */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            visibility: hidden;  /* 初期状態で非表示 */
+            opacity: 0;  /* フェードイン/アウト効果用 */
+            transition: opacity 0.5s ease-in-out; /* アニメーション */
+        }
+
+        /* フェードインアニメーション */
+        .notification.fadeIn {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* フェードアウトアニメーション */
+        .notification.fadeOut {
+            visibility: visible;
+            opacity: 0;
+        }
+    </style>
 </head>
 <body>
     <h1>文字変換ツール</h1>
