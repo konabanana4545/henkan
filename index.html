@@ -56,27 +56,68 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: #4CAF50;
+            background-color: #ff9800;  /* オレンジ色 */
             color: white;
             padding: 10px 20px;
             border-radius: 5px;
             font-size: 16px;
-            visibility: hidden;  /* 初期状態で非表示 */
+            display: none;  /* 初期状態で非表示 */
             opacity: 0;  /* フェードイン/アウト効果用 */
             transition: opacity 0.5s ease-in-out; /* アニメーション */
         }
 
-        /* フェードインアニメーション */
-        .notification.fadeIn {
-            visibility: visible;
+        .notification.show {
+            display: block;
             opacity: 1;
         }
 
-        /* フェードアウトアニメーション */
-        .notification.fadeOut {
-            visibility: visible;
+        .notification.hide {
             opacity: 0;
         }
     </style>
 </head>
 <body>
+    <h1>文字変換ツール</h1>
+    <textarea id="inputText" rows="4" cols="50" placeholder="ここにテキストを入力"></textarea><br>
+    <button class="power-button" onclick="convertText()">変換</button>
+    <h2>変換結果</h2>
+    <div id="outputText"></div>
+    <button class="copy-button" onclick="copyText()">コピー</button>
+    
+    <!-- コピー通知 -->
+    <div id="notification" class="notification">
+        <p>コピーしました！</p>
+    </div>
+
+    <script>
+        function convertText() {
+            const inputText = document.getElementById('inputText').value;
+            let outputText = '';
+            for (let char of inputText) {
+                outputText += `||${char}||`;
+            }
+            document.getElementById('outputText').innerText = outputText;
+        }
+
+        function copyText() {
+            const outputText = document.getElementById('outputText').innerText;
+            navigator.clipboard.writeText(outputText).then(() => {
+                const notification = document.getElementById('notification');
+                notification.classList.add('show');  // 通知を表示
+
+                // 5秒後にフェードアウト開始
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    notification.classList.add('hide');
+                }, 5000); // 5秒後にフェードアウトを開始
+
+                // フェードアウト後に通知を非表示にする
+                setTimeout(() => {
+                    notification.classList.remove('hide');
+                    notification.style.display = 'none';  // 非表示にする
+                }, 5500); // フェードアウトの終了時間（0.5秒後）
+            });
+        }
+    </script>
+</body>
+</html>
