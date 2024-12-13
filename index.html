@@ -89,6 +89,12 @@
             word-break: break-word;
         }
 
+        #loadingGif {
+            display: none;
+            margin-top: 20px;
+            max-width: 200px;
+        }
+
     </style>
 </head>
 <body>
@@ -104,13 +110,21 @@
         <p>コピーしました！</p>
     </div>
 
+    <!-- GIFの表示 -->
+    <img id="loadingGif" src="chipi-chipi-chapa-chapa-cat-hd-version-full.gif" alt="Loading GIF">
+
     <script>
         function convertText() {
             const inputText = document.getElementById('inputText').value;
             let outputText = '';
             let index = 0;  // 現在の文字インデックス
             const outputDiv = document.getElementById('outputText');
+            const gif = document.getElementById('loadingGif');
+
             outputDiv.innerText = '';  // 前回の結果をクリア
+
+            // GIFを表示
+            gif.style.display = 'block';
 
             // 文字を一文字ずつ表示する処理
             const interval = setInterval(() => {
@@ -121,6 +135,7 @@
                     index++;
                 } else {
                     clearInterval(interval);  // 全ての文字が表示されたら終了
+                    gif.style.display = 'none';  // GIFを非表示にする
                 }
             }, 15);  // 100ミリ秒ごとに1文字を表示
         }
