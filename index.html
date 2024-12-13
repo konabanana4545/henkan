@@ -7,10 +7,67 @@
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css"> <!-- 外部 CSS ファイルをリンク -->
     <style>
+        /* 全体を中央揃え */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-family: 'Baloo 2', sans-serif;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 80%;
+            max-width: 600px;
+            padding: 10px;
+            margin: 10px auto;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px auto;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* コピー通知のスタイル */
         .notification {
             visibility: hidden;
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
         }
 
         .fadeIn {
@@ -21,6 +78,17 @@
         .fadeOut {
             opacity: 0;
         }
+
+        #outputText {
+            font-size: 1.2rem;
+            word-wrap: break-word;
+            margin-top: 20px;
+            max-width: 80%;
+            min-width: 300px;
+            text-align: center;
+            word-break: break-word;
+        }
+
     </style>
 </head>
 <body>
