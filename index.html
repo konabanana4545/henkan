@@ -6,6 +6,54 @@
     <title>文字変換ツール</title>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css"> <!-- 外部 CSS ファイルをリンク -->
+    <style>
+        /* アニメーションを追加 */
+        #outputText {
+            font-size: 1.5em;
+            font-family: 'Roboto', sans-serif;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        /* 1文字ずつ現れるアニメーション */
+        .char {
+            display: inline-block;
+            opacity: 0;
+            animation: fadeIn 0.1s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* コピー通知のスタイル */
+        .notification {
+            visibility: hidden;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 128, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: opacity 0.5s;
+        }
+
+        .fadeIn {
+            opacity: 1;
+        }
+
+        .fadeOut {
+            opacity: 0;
+        }
+    </style>
 </head>
 <body>
     <h1>文字変換ツール</h1>
@@ -24,10 +72,14 @@
         function convertText() {
             const inputText = document.getElementById('inputText').value;
             let outputText = '';
+            let delay = 0; // アニメーションの遅延時間（1文字ごとに少しずつ遅くする）
+
             for (let char of inputText) {
-                outputText += `||${char}||`;  // テンプレートリテラルを使用して変換
+                outputText += `<span class="char" style="animation-delay: ${delay}s">${char}</span>`;
+                delay += 0.05;  // 文字ごとに0.05秒ずつ遅延を増やす
             }
-            document.getElementById('outputText').innerText = outputText;
+
+            document.getElementById('outputText').innerHTML = outputText;
         }
 
         function copyText() {
