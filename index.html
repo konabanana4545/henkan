@@ -95,6 +95,21 @@
             max-width: 200px;
         }
 
+        /* 頑張ってるよ！メッセージのスタイル */
+        #statusMessage {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            display: none;  /* 初めは非表示 */
+        }
+
     </style>
 </head>
 <body>
@@ -112,6 +127,9 @@
 
     <!-- GIFの表示 -->
     <img id="loadingGif" src="chipi-chipi-chapa-chapa-cat-hd-version-full.gif" alt="Loading GIF">
+    
+    <!-- 頑張ってるよ！メッセージ -->
+    <div id="statusMessage">頑張ってるよ！</div>
 
     <script>
         function convertText() {
@@ -120,11 +138,13 @@
             let index = 0;  // 現在の文字インデックス
             const outputDiv = document.getElementById('outputText');
             const gif = document.getElementById('loadingGif');
+            const statusMessage = document.getElementById('statusMessage');
 
             outputDiv.innerText = '';  // 前回の結果をクリア
 
             // GIFを表示
             gif.style.display = 'block';
+            statusMessage.style.display = 'block'; // 頑張ってるよ！メッセージを表示
 
             // 文字を一文字ずつ表示する処理
             const interval = setInterval(() => {
@@ -136,6 +156,7 @@
                 } else {
                     clearInterval(interval);  // 全ての文字が表示されたら終了
                     gif.style.display = 'none';  // GIFを非表示にする
+                    statusMessage.style.display = 'none'; // 頑張ってるよ！メッセージを非表示
                 }
             }, 15);  // 100ミリ秒ごとに1文字を表示
         }
