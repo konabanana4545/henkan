@@ -6,6 +6,22 @@
     <title>文字変換ツール</title>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css"> <!-- 外部 CSS ファイルをリンク -->
+    <style>
+        .notification {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .fadeIn {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .fadeOut {
+            opacity: 0;
+        }
+    </style>
 </head>
 <body>
     <h1>文字変換ツール</h1>
@@ -24,10 +40,21 @@
         function convertText() {
             const inputText = document.getElementById('inputText').value;
             let outputText = '';
-            for (let char of inputText) {
-                outputText += ||${char}||;  // テンプレートリテラルを使用して変換
-            }
-            document.getElementById('outputText').innerText = outputText;
+            let index = 0;  // 現在の文字インデックス
+            const outputDiv = document.getElementById('outputText');
+            outputDiv.innerText = '';  // 前回の結果をクリア
+
+            // 文字を一文字ずつ表示する処理
+            const interval = setInterval(() => {
+                if (index < inputText.length) {
+                    const char = inputText[index];
+                    outputText += `||${char}||`;  // 変換処理
+                    outputDiv.innerText = outputText;  // 結果を更新
+                    index++;
+                } else {
+                    clearInterval(interval);  // 全ての文字が表示されたら終了
+                }
+            }, 100);  // 100ミリ秒ごとに1文字を表示
         }
 
         function copyText() {
